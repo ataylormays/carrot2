@@ -4,10 +4,6 @@ on:
   workflow_dispatch:
     # Allow manual dispatch.
 
-  schedule:
-    # But typically run on this schedule.
-    - cron: '0 5 * * *'
-
 jobs:
   tests:
     name: run full checks
