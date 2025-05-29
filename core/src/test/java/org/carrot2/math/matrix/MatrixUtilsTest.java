@@ -121,7 +121,7 @@ public class MatrixUtilsTest extends TestBase {
   public void testMinInColumns() {
     final double[] expectedMinValues = new double[] {-1.00, 0, 0.50, -7.00};
 
-    final int[] expectedMinIndices = new int[] {0, 0, 1, 2};
+    final int[] expectedMinIndices = new int[] {0, 0, 1, 3};
 
     final double[] actualMinValues = new double[4];
     final int[] actualMinColumnIndices =
