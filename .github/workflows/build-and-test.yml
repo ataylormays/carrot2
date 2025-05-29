@@ -50,6 +50,12 @@ jobs:
         if: ${{ inputs.run-tests }}
         run: ./gradlew --max-workers 4 check assemble "-Ptasks.times=true" ${{ inputs.gradle-options }}
 
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: all-test-outputs-jdk${{ inputs.jdk-version }}-os${{ inputs.os }}
+          path: '**/TEST-*.xml'
+
       - name: Store failed test outputs
         if: failure()
         uses: actions/upload-artifact@v4
