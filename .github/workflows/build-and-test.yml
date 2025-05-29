@@ -69,7 +69,7 @@ jobs:
       - name: Submit to HiQLT
         if: always()
         run: |
-          npx qlt-cli qlt-upload -p "**/TEST-*.xml'" -s ${{ secrets.HIQLT_TOKEN }} -t carrot2 -e may-28-853pm -u https://gateway.hiqlt.com 
+          npx qlt-cli qlt-upload -p "**/TEST-*.xml" -s ${{ secrets.HIQLT_TOKEN }} -t carrot2 -e may-28-1057pm -u https://gateway.hiqlt.com 
 
       - name: Store failed test outputs
         if: failure()
