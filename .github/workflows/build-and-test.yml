@@ -35,6 +35,13 @@ jobs:
       CI: true
 
     steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 19
+
+      - name: Install HiQLT CLI
+        run: npm install --no-save qlt-cli@1.0.0
+
       - uses: carrotsearch/infra-public/.github/actions/prepare-git-clone@master
         with:
           token: ${{ secrets.GH_ACCESS_TOKEN }}
@@ -55,6 +62,11 @@ jobs:
         with:
           name: all-test-outputs-jdk${{ inputs.jdk-version }}-os${{ inputs.os }}
           path: '**/TEST-*.xml'
+
+      - name: Submit to HiQLT
+        if: always()
+        run: |
+          qlt-upload -p "**/TEST-*.xml'" -s ${{ secrets.HIQLT_TOKEN }} -t carrot2 -e may-28-853pm -u https://gateway.hiqlt.com 
 
       - name: Store failed test outputs
         if: failure()
