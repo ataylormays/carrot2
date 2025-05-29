@@ -62,6 +62,9 @@ jobs:
           name: all-test-outputs-jdk${{ inputs.jdk-version }}-os${{ inputs.os }}
           path: '**/TEST-*.xml'
 
+      - name: Check for files
+        run: ls core/build/test-results/test/
+
       - name: Submit to HiQLT
         if: always()
         run: |
