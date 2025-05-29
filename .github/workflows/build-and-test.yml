@@ -63,6 +63,7 @@ jobs:
           path: '**/TEST-*.xml'
 
       - name: Check for files
+        if: always()
         run: ls core/build/test-results/test/
 
       - name: Submit to HiQLT
