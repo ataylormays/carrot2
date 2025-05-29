@@ -1,9 +1,0 @@
-...
-  "templates" : [
-    "frontend-default",
-    "lingo",
-    "stc",
-    "bkmeans",
-    "foo"
-  ]
-}

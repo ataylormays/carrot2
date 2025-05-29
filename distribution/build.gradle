@@ -20,7 +20,6 @@ configurations {
 }
 
 dependencies {
-  dcs project(path: ":dcs:distribution", configuration: "distDir" )
   examples project(path: ":core-examples", configuration: "distribution" )
   mavenArtifacts project(path: ":", configuration: "mavenArtifacts")
 }

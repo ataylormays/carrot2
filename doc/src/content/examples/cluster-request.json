@@ -1,9 +1,0 @@
-{
-  "language": "English",
-  "algorithm": "Lingo",
-  "documents": [
-    { "title": "PDF Viewer on Windows" },
-    { "title": "Firefox PDF plugin to view PDF in browser on Windows" },
-    { "title": "Limit CPU usage for flash in Firefox?" }
-  ]
-}

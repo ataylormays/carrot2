@@ -30,47 +30,6 @@ allprojects { prj ->
   }
 }
 
-// Don't use spotlessjs because it's terribly slow. Run prettier via npm.
-configure(project(":dcs:contexts:frontend")) { prj ->
-  prj.apply plugin: 'com.github.node-gradle.node'
-
-  task prettierCheck(type: YarnTask) {
-    group 'verification'
-    description 'Runs npm prettier check'
-
-    args = ['prettier-check']
-  }
-
-  task prettierApply(type: YarnTask) {
-    group 'verification'
-    description 'Runs npm prettier'
-
-    args = ['prettier']
-  }
-
-  // Configure common stuff.
-  configure([prettierCheck, prettierApply]) { task ->
-    dependsOn "yarnInstall"
-
-    File tsOutput = file("${buildDir}/prettier/${task.name}.txt")
-
-    inputs.files(fileTree(dir: ".",
-        // narrow down the list so that node_modules isn't scanned.
-        includes: [ "app/**", "theme/**", "ui/**" ],
-        // Apply the same exclusions as in .prettierignore.
-        excludes: file(".prettierignore").readLines("UTF-8").findAll { !it.isBlank() } ))
-    outputs.file(tsOutput)
-
-    doLast {
-      tsOutput.setText("Dummy output for incremental mode.", "UTF-8")
-    }
-  }
-
-  // Attach to convention tasks.
-  tasks.check.dependsOn prettierCheck
-  tasks.tidy.dependsOn prettierApply
-}
-
 configure(project(":gradle")) { prj ->
   prj.apply plugin: 'groovy'
   prj.apply plugin: 'com.diffplug.spotless'

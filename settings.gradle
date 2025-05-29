@@ -23,17 +23,6 @@ include 'lang:lucene'
 include 'lang:lucene-chinese'
 include 'lang:lucene-japanese'
 include 'lang:lucene-korean'
-
-include 'dcs:distribution'
-include 'dcs:tests'
-include 'dcs:model'
-include 'dcs:examples'
-
-include 'dcs:contexts:service'
-include 'dcs:contexts:frontend'
-include 'dcs:contexts:root'
-include 'dcs:contexts:javadoc'
-
 include 'distribution'
 include 'distribution-tests'
 
